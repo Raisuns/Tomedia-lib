@@ -1,120 +1,173 @@
-# Inven BS
+# 📚 TomediaLib
 
-Aplikasi inventaris barang sekolah menggunakan Framework Laravel 5.8. Aplikasi ini cocok untuk digunakan untuk disekolah atau umum. Aplikasi ini memiliki 3 role, yaitu _Administrator Perpustakaan_, _Operator Perpustakaan_ dan _Anggota Perpustakaan_. Beberapa CRUD menggunakan AJAX untuk pengambilan data agar mengurangi penggunaan pindah halaman.
+### Sistem Peminjaman Buku Berbasis Web
 
-### Prasyarat
+TomediaLib adalah aplikasi web berbasis Laravel yang dirancang untuk mempermudah pengelolaan peminjaman buku secara digital. Sistem ini menyediakan fitur lengkap untuk pengguna dan admin dalam mengelola data buku serta transaksi peminjaman dengan efisien.
 
-Berikut beberapa hal yang perlu diinstal terlebih dahulu:
+---
 
--   Composer (https://getcomposer.org/)
--   PHP 7.2.x
--   MySQL 14.5.x
--   XAMPP
+## ✨ Overview
 
-Jika Anda menggunakan XAMPP, untuk PHP dan MySQL sudah menjadi 1 (bundle) didalam aplikasi XAMPP.
+Aplikasi ini dibuat sebagai solusi sederhana namun efektif untuk sistem perpustakaan digital, dengan fokus pada kemudahan penggunaan, efisiensi pengelolaan data, dan pengalaman pengguna yang baik.
 
-### Fitur
+---
 
--   CRUD Pengguna
--   CRUD Kategori Buku
--   CRUD Buku
--   Informasi peminjaman dari pengguna
+## 🚀 Fitur Utama
 
-### Preview Gambar
+### 👤 User
 
-_Tampilan Login_
-![Image 1](https://i.imgur.com/YsR6xWS.png)
+* Registrasi & Login
+* Melihat daftar buku
+* Melakukan peminjaman buku
+* Melihat status peminjaman:
 
-_Dashboard_
-![Image 2](https://i.imgur.com/IOgIyIi.png)
+  * ✅ Disetujui
+  * ⏳ Belum Disetujui
+  * ❌ Ditolak
+  * 🔄 Dikembalikan
 
-_Daftar Pengguna_
-![Image 3](https://i.imgur.com/e3rkQ45.png)
+---
 
-_Daftar Kategori Buku_
-![Image 4](https://i.imgur.com/WVEAyKi.png)
+### 🛠️ Admin
 
-_Daftar Buku_
-![Image 5](https://i.imgur.com/3Jarbbv.png)
+* Login sebagai admin
+* CRUD data buku (Create, Read, Update, Delete)
+* Manajemen peminjaman:
 
-_Daftar Peminjam Buku_
-![Image 5](https://i.imgur.com/4z18siI.png)
+  * Menyetujui permintaan
+  * Menolak permintaan
+  * Mengelola pengembalian buku
+* Monitoring aktivitas peminjaman
 
-_Histori Peminjam Buku_
-![Image 5](https://i.imgur.com/nzqiVSv.png)
+---
 
-### Langkah-langkah instalasi
+## 🧠 Sistem Status Peminjaman
 
--   Clone repository ini
+| Kode | Status          |
+| ---- | --------------- |
+| 1    | Disetujui       |
+| 2    | Belum Disetujui |
+| 3    | Ditolak         |
+| 4    | Dikembalikan    |
 
+---
+
+## 🧩 Teknologi yang Digunakan
+
+* ⚡ Laravel 8 (Stable Release)
+* 🐘 PHP
+* 🗄️ MySQL
+* 🎨 Blade Template Engine
+* 🎯 Bootstrap / Tailwind CSS
+* 🔐 Laravel Authentication System
+
+---
+
+## ⚙️ Instalasi & Setup
+
+1. Clone repository:
+
+```bash
+git clone https://github.com/username/tomedialib.git
 ```
-https://github.com/mrizkimaulidan/perpusweb.git
+
+2. Masuk ke folder project:
+
+```bash
+cd tomedialib
 ```
 
-```
-git@github.com:mrizkimaulidan/perpusweb.git
-```
+3. Install dependency:
 
--   Install seluruh packages yang dibutuhkan
-
-```
+```bash
 composer install
+npm install && npm run dev
 ```
 
--   Siapkan database dan atur file .env sesuai dengan konfigurasi Anda
--   Ubah value APP_NAME= pada file .env menjadi nama aplikasi yang anda inginkan
--   Jika sudah, migrate seluruh migrasi dan seeding data
+4. Copy file environment:
 
-```
-php artisan migrate --seed
+```bash
+cp .env.example .env
 ```
 
--   Jalankan local server
+5. Generate application key:
 
+```bash
+php artisan key:generate
 ```
+
+6. Konfigurasi database pada file `.env`:
+
+```env
+DB_DATABASE=buku
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+7. Jalankan migrasi database:
+
+```bash
+php artisan migrate
+```
+
+8. Jalankan server:
+
+```bash
 php artisan serve
 ```
 
--   User default aplikasi untuk login
+---
 
-##### Administrator Perpustakaan
+## 🗄️ Struktur Database (Ringkas)
 
-```
-Email       : admin@mail.com
-Password    : secret
-```
+Tabel utama dalam sistem:
 
-##### Operator Perpustakaan
+* `users`
+* `books`
+* `peminjaman` / `book_user`
 
-```
-Email       : operator@mail.com
-Password    : secret
-```
+---
 
-##### Anggota Perpustakaan
+## 📸 Preview Aplikasi
 
-```
-Email       : anggota@mail.com
-Password    : secret
-```
+> <img width="1919" height="971" alt="Screenshot 2026-04-06 203946" src="https://github.com/user-attachments/assets/144e038e-9044-485e-97d6-411093f7a4c7" />
+> page login
+> <img width="1917" height="969" alt="Screenshot 2026-04-06 204228" src="https://github.com/user-attachments/assets/3aa0cb83-c05f-4040-a363-8b07d6ec06ad" />
+> Crud Buku
+> <img width="1903" height="969" alt="Screenshot 2026-04-06 204743" src="https://github.com/user-attachments/assets/71225eab-7a81-470d-86f2-a674d20ef3c2" />
+> Peminjaman Buku
 
-### Dibuat dengan
 
--   [Laravel](https://laravel.com) - Web Framework
 
-### Kontribusi
 
-Silahkan request melalui kolom `Pull Requests` jika ingin melakukan kontribusi
+---
 
-### Pembuat
+## 📌 Catatan
 
--   **Muhammad Rizki Maulidan** - _Programmer_ - [mrizkimaulidan](https://github.com/mrizkimaulidan)
+* Pastikan MySQL dan PHP sudah berjalan dengan baik
+* Direkomendasikan menggunakan PHP versi 8+
+* Project ini masih dapat dikembangkan lebih lanjut (fitur denda, notifikasi, dll)
 
-### Lisensi
+---
 
-Aplikasi ini boleh untuk dibagi dan diubah. Mohon tidak untuk diperjualbelikan!
+## 👨‍💻 Developer
 
-### Ucapan terima kasih
+Dikembangkan oleh **Rais**
+Sebagai bagian dari pembelajaran dan pengembangan sistem berbasis web.
 
--   Stackoverflow
--   Google
+---
+
+## 🚧 Future Improvements
+
+* Sistem denda keterlambatan
+* Notifikasi peminjaman
+* Dashboard statistik
+* Role management yang lebih kompleks
+
+---
+
+## ⭐ Support
+
+Jika kamu merasa project ini bermanfaat, jangan lupa beri ⭐ pada repository ini!
+
+---
