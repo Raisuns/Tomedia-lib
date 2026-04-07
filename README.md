@@ -134,7 +134,7 @@ Tabel utama dalam sistem:
 > page login
 > <img width="1903" height="969" alt="Screenshot 2026-04-06 204743" src="https://github.com/user-attachments/assets/baf91f4f-b3b7-4994-b427-97cf51c9badf" />
 > peminjaman Buku
-> <img width="1917" height="969" alt="Screenshot 2026-04-06 204228" src="https://github.com/user-attachments/assets/ef1de61f-4351-475d-9f21-67cefd9816d8" /> \
+> <img width="1917" height="969" alt="Screenshot 2026-04-06 204228" src="https://github.com/user-attachments/assets/ef1de61f-4351-475d-9f21-67cefd9816d8" />
 > Crud Buku
 
 
